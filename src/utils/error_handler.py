@@ -1,3 +1,6 @@
+from typing import Dict
+
+
 class AgentErrorHandler:
     def __init__(self, logger):
         self.logger = logger
