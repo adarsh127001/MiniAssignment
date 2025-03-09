@@ -107,8 +107,9 @@ class RAGAgent(BaseAgent):
             )
             
             response = self.llm.invoke(prompt)
-            return {"output": response.content}
+            # Return in format expected by LangChain agent
+            return {"tool_output": response.content}
             
         except Exception as e:
             self.logger.log_error("RAGAgent", e, {"query": query})
-            return {"output": "I encountered an error while processing your request."} 
+            return {"tool_output": "I encountered an error while processing your request."} 

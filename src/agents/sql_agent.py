@@ -29,13 +29,12 @@ class SQLAgent(BaseAgent):
     
     def process(self, query: str) -> Dict[str, Any]:
         try:
-            # Special handling for schema/table listing queries
             query_lower = query.lower()
             if any(word in query_lower for word in ["schema", "tables", "list tables"]):
                 sql_query = "SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public'"
             else:
                 sql_response = self.llm.invoke(self.prompt.format(question=query))
-                sql_query = sql_response.content.strip().rstrip(';')
+                sql_query = sql_response.content.replace('\_', '_').strip().rstrip(';')
             
             self.logger.log_agent_decision(
                 "SQLAgent",
@@ -50,9 +49,10 @@ class SQLAgent(BaseAgent):
                     columns = result.keys()
                     rows = result.fetchall()
                     formatted_results = [dict(zip(columns, row)) for row in rows]
-                    return {"output": f"Query results:\n{formatted_results}"}
-                return {"output": "The database has been updated successfully!"}
+                    # Return in format expected by LangChain agent
+                    return {"tool_output": str(formatted_results)}
+                return {"tool_output": "Database updated successfully!"}
             
         except Exception as e:
             self.logger.log_error("SQLAgent", e, {"query": query})
-            return {"output": f"Database error: {str(e)}"} 
+            return {"tool_output": f"Database error: {str(e)}"} 
