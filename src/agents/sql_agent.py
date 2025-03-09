@@ -27,31 +27,19 @@ class SQLAgent(BaseAgent):
             """
         )
     
-    def process(self, state: Dict[str, Any]) -> Dict[str, Any]:
-        messages = state["messages"]
-        last_message = messages[-1]
-        
-        if not isinstance(last_message, HumanMessage):
-            return {"next": "chatbot"}
-        
+    def process(self, query: str) -> Dict[str, Any]:
         try:
             # Special handling for schema/table listing queries
-            query_lower = last_message.content.lower()
+            query_lower = query.lower()
             if any(word in query_lower for word in ["schema", "tables", "list tables"]):
                 sql_query = "SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public'"
             else:
-                # Normal query processing
-                sql_response = self.llm.invoke(self.prompt.format(question=last_message.content))
-                sql_query = sql_response.content.strip()
-                if "```" in sql_query:
-                    sql_query = sql_query.split("```")[1].strip()
-                    if sql_query.startswith("sql"):
-                        sql_query = sql_query[3:].strip()
-                sql_query = sql_query.rstrip(';')
+                sql_response = self.llm.invoke(self.prompt.format(question=query))
+                sql_query = sql_response.content.strip().rstrip(';')
             
             self.logger.log_agent_decision(
                 "SQLAgent",
-                last_message.content,
+                query,
                 f"Generated query: {sql_query}"
             )
             
@@ -62,19 +50,9 @@ class SQLAgent(BaseAgent):
                     columns = result.keys()
                     rows = result.fetchall()
                     formatted_results = [dict(zip(columns, row)) for row in rows]
-                    response = f"Query results:\n{formatted_results}"
-                else:
-                    response = "The database has been updated successfully!"
-                
+                    return {"output": f"Query results:\n{formatted_results}"}
+                return {"output": "The database has been updated successfully!"}
+            
         except Exception as e:
-            self.logger.log_error(
-                "SQLAgent",
-                e,
-                {"query": last_message.content}
-            )
-            response = f"Database error: {str(e)}"
-        
-        return {
-            "messages": [AIMessage(content=response)],
-            "next": "chatbot"
-        } 
+            self.logger.log_error("SQLAgent", e, {"query": query})
+            return {"output": f"Database error: {str(e)}"} 

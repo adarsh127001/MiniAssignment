@@ -1,23 +1,49 @@
-from typing import Annotated, Dict, List
+from typing import Dict, List
 from langchain_groq import ChatGroq
-from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
-from typing_extensions import TypedDict
-from langgraph.graph import StateGraph
-from langgraph.graph.message import add_messages
+from langchain.chains.conversation.memory import ConversationBufferWindowMemory
+from langchain.agents import initialize_agent
+from langchain_core.tools import Tool
+from langgraph.graph import StateGraph, END
+from langchain_core.messages import HumanMessage
 
 from config import Config
-from agents.router_agent import RouterAgent
 from agents.rag_agent import RAGAgent
 from agents.sql_agent import SQLAgent
 from agents.search_agent import SearchAgent
 from utils.logger import AgentLogger
+from agents.router_agent import RouterAgent
 
-class State(TypedDict):
-    messages: Annotated[list[BaseMessage], add_messages]
-    memory: list[Dict]
+def create_tools(llm, logger):
+    # Create our specialized tools
+    sql_agent = SQLAgent(llm, logger)
+    rag_agent = RAGAgent(llm, logger)
+    search_agent = SearchAgent(llm, logger)
+    
+    tools = [
+        Tool(
+            name="SQL_Database",
+            func=sql_agent.process,
+            description="Use this tool for database queries, listing tables, or getting data from the HashCart database"
+        ),
+        Tool(
+            name="Policy_Documents",
+            func=rag_agent.process,
+            description="Use this tool for questions about company policies, leave rules, or increments"
+        ),
+        Tool(
+            name="Internet_Search",
+            func=search_agent.process,
+            description="Use this tool for general information or current events"
+        )
+    ]
+    return tools
 
-def create_llm():
-    return ChatGroq(
+def create_agent_graph():
+    graph = StateGraph(State)
+    
+    # Initialize components
+    logger = AgentLogger()
+    llm = ChatGroq(
         model=Config.LLM_MODEL,
         temperature=Config.LLM_TEMPERATURE,
         max_tokens=Config.LLM_MAX_TOKENS,
@@ -25,13 +51,13 @@ def create_llm():
         max_retries=Config.LLM_MAX_RETRIES,
         api_key=Config.GROQ_API_KEY,
     )
-
-def create_agent_graph():
-    graph = StateGraph(State)
     
-    # Initialize components
-    logger = AgentLogger()
-    llm = create_llm()
+    # Add memory to state
+    memory = ConversationBufferWindowMemory(
+        memory_key='chat_history',
+        k=3,
+        return_messages=True
+    )
     
     # Initialize agents
     router_agent = RouterAgent()
@@ -39,47 +65,16 @@ def create_agent_graph():
     sql_agent = SQLAgent(llm, logger)
     search_agent = SearchAgent(llm, logger)
     
-    def chatbot(state: State):
-        if "memory" not in state:
-            state["memory"] = []
-        
-        messages = state["messages"]
-        last_message = messages[-1]
-        
-        if isinstance(last_message, HumanMessage):
-            state["memory"].append({
-                "role": "user",
-                "content": last_message.content
-            })
-            
-            response = llm.invoke(messages)
-            
-            state["memory"].append({
-                "role": "assistant",
-                "content": response.content
-            })
-            
-            return {
-                "messages": [AIMessage(content=response.content)],
-                "memory": state["memory"]
-            }
-        return state
-    
     # Add nodes
-    graph.add_node("chatbot", chatbot)
     graph.add_node("router", router_agent.process)
     graph.add_node("rag", rag_agent.process)
     graph.add_node("sql", sql_agent.process)
     graph.add_node("search", search_agent.process)
     
-    # Add edges with clear flow
-    graph.add_edge("router", "chatbot")
-    graph.add_edge("router", "search")
+    # Add edges
     graph.add_edge("router", "rag")
     graph.add_edge("router", "sql")
-    graph.add_edge("search", "chatbot")
-    graph.add_edge("rag", "chatbot")
-    graph.add_edge("sql", "chatbot")
+    graph.add_edge("router", "search")
     
     # Set entry point
     graph.set_entry_point("router")
@@ -87,30 +82,46 @@ def create_agent_graph():
     return graph.compile()
 
 def main():
-    agent_graph = create_agent_graph()
-    memory = []
+    logger = AgentLogger()
+    llm = ChatGroq(
+        model=Config.LLM_MODEL,
+        temperature=Config.LLM_TEMPERATURE,
+        max_tokens=Config.LLM_MAX_TOKENS,
+        timeout=Config.LLM_TIMEOUT,
+        max_retries=Config.LLM_MAX_RETRIES,
+        api_key=Config.GROQ_API_KEY,
+    )
+    
+    # Create memory
+    memory = ConversationBufferWindowMemory(
+        memory_key='chat_history',
+        k=3,
+        return_messages=True
+    )
+    
+    # Create tools
+    tools = create_tools(llm, logger)
+    
+    # Initialize the agent
+    agent = initialize_agent(
+        agent='chat-conversational-react-description',
+        tools=tools,
+        llm=llm,
+        verbose=True,
+        max_iterations=3,
+        early_stopping_method='generate',
+        memory=memory
+    )
     
     while True:
         try:
             user_input = input("\nEnter your question (or 'exit' to quit): ")
             if user_input.lower() == 'exit':
                 break
-                
-            state = {
-                "messages": [HumanMessage(content=user_input)],
-                "memory": memory
-            }
             
-            # Set a higher recursion limit and add config
-            result = agent_graph.invoke(state, {"recursion_limit": 50})
+            response = agent(user_input)
+            print(f"Response: {response['output']}")
             
-            if "messages" in result:
-                for message in result["messages"]:
-                    if isinstance(message, (HumanMessage, AIMessage)):
-                        print(f"Response: {message.content}")
-            if "memory" in result:
-                memory = result["memory"]
-                    
         except KeyboardInterrupt:
             print("\nExiting...")
             break

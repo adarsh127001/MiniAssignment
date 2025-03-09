@@ -34,7 +34,6 @@ class RAGAgent(BaseAgent):
             chunk_overlap=50
         )
         
-        # Load documents during initialization
         self.load_documents()
         
         self.prompt = PromptTemplate.from_template(
@@ -92,15 +91,8 @@ class RAGAgent(BaseAgent):
             formatted.append(f"{role}: {msg['content']}")
         return "\n".join(formatted[-4:])
     
-    def process(self, state: Dict[str, Any]) -> Dict[str, Any]:
+    def process(self, query: str) -> Dict[str, Any]:
         try:
-            messages = state["messages"]
-            last_message = messages[-1]
-            
-            if not isinstance(last_message, HumanMessage):
-                return {"next": "chatbot"}
-            
-            query = last_message.content
             results = self.vector_store.similarity_search(query, k=3)
             
             context = "\n".join([
@@ -108,28 +100,15 @@ class RAGAgent(BaseAgent):
                 for i, doc in enumerate(results)
             ])
             
-            chat_history = self._format_chat_history(state.get("memory", []))
-            
             prompt = self.prompt.format(
                 context=context,
                 question=query,
-                chat_history=chat_history
+                chat_history=""
             )
             
             response = self.llm.invoke(prompt)
-            
-            return {
-                "messages": [AIMessage(content=response.content)],
-                "next": "chatbot"
-            }
+            return {"output": response.content}
             
         except Exception as e:
-            self.logger.log_error(
-                "RAGAgent",
-                e,
-                {"query": query if 'query' in locals() else None}
-            )
-            return {
-                "messages": [AIMessage(content="I encountered an error while processing your request.")],
-                "next": "chatbot"
-            } 
+            self.logger.log_error("RAGAgent", e, {"query": query})
+            return {"output": "I encountered an error while processing your request."} 
