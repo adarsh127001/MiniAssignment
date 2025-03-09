@@ -3,6 +3,7 @@ from langchain_groq import ChatGroq
 from langchain.chains.conversation.memory import ConversationBufferWindowMemory
 from langchain.agents import initialize_agent
 from langchain_core.tools import Tool
+from langchain_core.prompts import PromptTemplate
 
 from config import Config
 from agents.rag_agent import RAGAgent
@@ -14,42 +15,37 @@ def main():
     logger = AgentLogger()
     llm = ChatGroq(
         model=Config.LLM_MODEL,
-        temperature=Config.LLM_TEMPERATURE,
-        max_tokens=Config.LLM_MAX_TOKENS,
-        timeout=Config.LLM_TIMEOUT,
-        max_retries=Config.LLM_MAX_RETRIES,
+        temperature=0,
         api_key=Config.GROQ_API_KEY,
     )
     
-    # Initialize agents
-    sql_agent = SQLAgent(llm, logger)
-    rag_agent = RAGAgent(llm, logger)
-    search_agent = SearchAgent(llm, logger)
-    
+    # Initialize tools with better descriptions
     tools = [
         Tool(
-            name="SQL_Database",
-            func=lambda x: sql_agent.process(x)["tool_output"],
-            description="Use for database queries (e.g., list tables, update records, query data)"
+            name="Database_Query",
+            func=SQLAgent(llm, logger).process,
+            description="Use for database operations: querying tables, updating records, or getting data from HashCart database"
         ),
         Tool(
-            name="Policy_Documents",
-            func=lambda x: rag_agent.process(x)["tool_output"],
-            description="Use for company policies, leave rules, or increments"
+            name="Policy_Search",
+            func=RAGAgent(llm, logger).process,
+            description="Use for questions about company policies, employee handbook, leave rules, or increments"
         ),
         Tool(
             name="Internet_Search",
-            func=search_agent.process,
-            description="Use for general information or current events"
+            func=SearchAgent(llm, logger).process,
+            description="Use for real-time information from the internet about current events or general knowledge"
         )
     ]
     
+    # Add memory with larger context window
     memory = ConversationBufferWindowMemory(
         memory_key='chat_history',
-        k=3,
+        k=5,
         return_messages=True
     )
     
+    # Initialize agent with better parameters
     agent = initialize_agent(
         agent='chat-conversational-react-description',
         tools=tools,
@@ -61,21 +57,21 @@ def main():
         handle_parsing_errors=True
     )
     
+    print("Agent initialized! Ask me anything about policies, database, or general information.")
+    
     while True:
         try:
-            user_input = input("\nEnter your question (or 'exit' to quit): ")
-            if user_input.lower() == 'exit':
+            query = input("\nQuestion (or 'exit' to quit): ")
+            if query.lower() == 'exit':
                 break
             
-            response = agent.invoke({"input": user_input})
-            print(f"Response: {response['output']}")
+            response = agent.invoke({"input": query})
+            print(f"\nResponse: {response['output']}")
             
         except KeyboardInterrupt:
-            print("\nExiting...")
             break
         except Exception as e:
-            print(f"An error occurred: {str(e)}")
-            print("Please try another question.")
+            print(f"\nError: {str(e)}")
 
 if __name__ == "__main__":
     main() 

@@ -335,3 +335,81 @@
 2025-03-09 15:23:45,397 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2025-03-09 15:23:45,399 - AgentSystem - ERROR - {"timestamp": "2025-03-09T15:23:45.399352", "agent_type": "SearchAgent", "error": "string indices must be integers", "context": {"query": null}}
 2025-03-09 15:23:45,970 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:41:01,524 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 15:41:01,527 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 15:41:08,583 - AgentSystem - INFO - {"timestamp": "2025-03-09T15:41:08.583111", "agent_type": "RAGAgent", "query": "Loading document: data\\policies.txt", "decision": "Successfully loaded 1 chunks"}
+2025-03-09 15:41:15,750 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:41:15,786 - AgentSystem - ERROR - {"timestamp": "2025-03-09T15:41:15.785152", "agent_type": "SearchAgent", "error": "string indices must be integers", "context": {"query": null}}
+2025-03-09 15:41:16,318 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:41:26,867 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:41:26,872 - AgentSystem - ERROR - {"timestamp": "2025-03-09T15:41:26.872500", "agent_type": "SearchAgent", "error": "string indices must be integers", "context": {"query": null}}
+2025-03-09 15:41:27,406 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:41:35,592 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:41:35,602 - AgentSystem - ERROR - {"timestamp": "2025-03-09T15:41:35.602575", "agent_type": "SearchAgent", "error": "string indices must be integers", "context": {"query": null}}
+2025-03-09 15:41:36,144 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:41:48,433 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:41:48,439 - AgentSystem - ERROR - {"timestamp": "2025-03-09T15:41:48.439853", "agent_type": "SearchAgent", "error": "string indices must be integers", "context": {"query": null}}
+2025-03-09 15:41:49,109 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:41:54,726 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:41:54,731 - AgentSystem - ERROR - {"timestamp": "2025-03-09T15:41:54.731702", "agent_type": "SearchAgent", "error": "string indices must be integers", "context": {"query": null}}
+2025-03-09 15:41:55,269 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:42:01,961 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-03-09 15:42:01,961 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 3.000000 seconds
+2025-03-09 15:42:05,511 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:42:05,517 - AgentSystem - ERROR - {"timestamp": "2025-03-09T15:42:05.517918", "agent_type": "SearchAgent", "error": "string indices must be integers", "context": {"query": null}}
+2025-03-09 15:42:05,601 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-03-09 15:42:05,602 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 12.000000 seconds
+2025-03-09 15:42:18,399 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:42:29,332 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-03-09 15:42:29,333 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 3.000000 seconds
+2025-03-09 15:42:32,849 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:42:32,865 - AgentSystem - INFO - {"timestamp": "2025-03-09T15:42:32.865875", "agent_type": "SQLAgent", "query": "SHOW TABLES;", "decision": "Generated query: SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public'"}
+2025-03-09 15:42:35,082 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-03-09 15:42:35,082 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 12.000000 seconds
+2025-03-09 15:42:47,657 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:42:47,762 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-03-09 15:42:47,762 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 17.000000 seconds
+2025-03-09 15:43:05,442 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:43:44,289 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:43:44,873 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:45:30,517 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:45:30,521 - AgentSystem - ERROR - {"timestamp": "2025-03-09T15:45:30.521804", "agent_type": "SearchAgent", "error": "string indices must be integers", "context": {"query": null}}
+2025-03-09 15:45:31,304 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:45:56,715 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:45:57,282 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:45:57,288 - AgentSystem - INFO - {"timestamp": "2025-03-09T15:45:57.288078", "agent_type": "SQLAgent", "query": "SELECT price FROM products WHERE name = 'ASUS TUF F15 GTX 1650ti i510300H'", "decision": "Generated query: SELECT price FROM products WHERE name = 'ASUS TUF F15 GTX 1650ti i510300H'"}
+2025-03-09 15:45:57,302 - AgentSystem - ERROR - {"timestamp": "2025-03-09T15:45:57.302008", "agent_type": "SQLAgent", "error": "(psycopg2.errors.UndefinedColumn) column \"price\" does not exist\nLINE 1: SELECT price FROM products WHERE name = 'ASUS TUF F15 GTX 16...\n               ^\n\n[SQL: SELECT price FROM products WHERE name = 'ASUS TUF F15 GTX 1650ti i510300H']\n(Background on this error at: https://sqlalche.me/e/20/f405)", "context": {"query": "SELECT price FROM products WHERE name = 'ASUS TUF F15 GTX 1650ti i510300H'"}}
+2025-03-09 15:45:57,917 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:46:11,994 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:46:12,000 - AgentSystem - ERROR - {"timestamp": "2025-03-09T15:46:12.000813", "agent_type": "SearchAgent", "error": "string indices must be integers", "context": {"query": null}}
+2025-03-09 15:46:12,598 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:46:44,070 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:46:44,081 - AgentSystem - ERROR - {"timestamp": "2025-03-09T15:46:44.081419", "agent_type": "SearchAgent", "error": "string indices must be integers", "context": {"query": null}}
+2025-03-09 15:46:44,646 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:46:58,982 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:46:58,994 - AgentSystem - ERROR - {"timestamp": "2025-03-09T15:46:58.994497", "agent_type": "SearchAgent", "error": "string indices must be integers", "context": {"query": null}}
+2025-03-09 15:46:59,092 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-03-09 15:46:59,094 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 8.000000 seconds
+2025-03-09 15:47:07,699 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:48:04,464 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:48:05,010 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:48:05,011 - AgentSystem - INFO - {"timestamp": "2025-03-09T15:48:05.011604", "agent_type": "SQLAgent", "query": "Enter a new product called GamingMouseRedgear adarsh@gmail.com", "decision": "Generated query: INSERT INTO products (name, email, created_at) VALUES ('GamingMouseRedgear', 'adarsh@gmail.com', NOW())"}
+2025-03-09 15:48:05,599 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:48:20,110 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:48:20,765 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:48:21,353 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:51:03,920 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 15:51:03,920 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 15:51:09,640 - AgentSystem - INFO - {"timestamp": "2025-03-09T15:51:09.640384", "agent_type": "RAGAgent", "query": "Loading document: data\\policies.txt", "decision": "Successfully loaded 1 chunks"}
+2025-03-09 15:51:15,669 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:51:15,695 - AgentSystem - INFO - {"timestamp": "2025-03-09T15:51:15.695212", "agent_type": "SearchAgent", "query": "David Layed biography", "decision": "Initiating search"}
+2025-03-09 15:51:18,534 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:51:19,109 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:51:56,489 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:51:56,489 - AgentSystem - INFO - {"timestamp": "2025-03-09T15:51:56.489888", "agent_type": "SearchAgent", "query": "Adarsh Karthikeyan Sridharan LinkedIn profile and studies at Amrita Vishwa Vidyapeetham", "decision": "Initiating search"}
+2025-03-09 15:51:59,513 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:52:00,090 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:52:31,894 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:52:31,899 - AgentSystem - INFO - {"timestamp": "2025-03-09T15:52:31.899376", "agent_type": "SearchAgent", "query": "Adarsh Karthikeyan Sridharan", "decision": "Initiating search"}
+2025-03-09 15:52:35,045 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 15:52:35,849 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

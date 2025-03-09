@@ -22,32 +22,31 @@ class RAGAgent(BaseAgent):
         self.embeddings = HuggingFaceEmbeddings(
             model_name="sentence-transformers/all-mpnet-base-v2"
         )
+        
+        # Simplified vector store initialization
         self.vector_store = PGVector(
             embeddings=self.embeddings,
-            collection_name=Config.VECTOR_COLLECTION,
-            connection=Config.PG_CONNECTION,
-            use_jsonb=True
+            collection_name="policy_docs",
+            connection=Config.PG_CONNECTION
         )
         
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=1000,
-            chunk_overlap=50
+            chunk_overlap=200  # Increased overlap for better context
         )
         
         self.load_documents()
         
+        # Improved prompt for policy questions
         self.prompt = PromptTemplate.from_template(
-            """You are a helpful AI assistant that answers questions based on provided context.
-            Use only the following context to answer the question. If you cannot find the answer
-            in the context, say "I don't have enough information to answer that question."
+            """You are an HR assistant that helps with company policies.
+            Use only the following policy documents to answer the question.
+            If you cannot find a specific answer, say "I don't have that information in our policy documents."
             
-            Previous conversation context:
-            {chat_history}
-            
-            Relevant documents:
+            Policy Documents:
             {context}
             
-            Current question: {question}
+            Question: {question}
             """
         )
     
@@ -102,8 +101,7 @@ class RAGAgent(BaseAgent):
             
             prompt = self.prompt.format(
                 context=context,
-                question=query,
-                chat_history=""
+                question=query
             )
             
             response = self.llm.invoke(prompt)

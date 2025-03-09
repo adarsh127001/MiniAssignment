@@ -1,12 +1,9 @@
-from typing import Dict, Any, List
+from typing import Dict, Any
 from langchain_core.prompts import PromptTemplate
-from langchain_core.messages import AIMessage, HumanMessage
-
-from config import Config
-from .base_agent import BaseAgent
 from langchain_community.tools.tavily_search import TavilySearchResults
+from config import Config
 
-class SearchAgent(BaseAgent):
+class SearchAgent:
     def __init__(self, llm, logger):
         self.llm = llm
         self.logger = logger
@@ -16,77 +13,55 @@ class SearchAgent(BaseAgent):
         )
         
         self.prompt = PromptTemplate.from_template(
-            """You are a helpful AI assistant that provides information based on real-time web search results.
-            Analyze the following search results and provide a comprehensive answer.
-            If the search results don't contain relevant information, say so.
-            
-            Previous conversation context:
-            {chat_history}
+            """You are a helpful AI assistant that provides information based on web search results.
             
             Search Results:
             {search_results}
             
-            Current question: {question}
+            Question: {question}
             
-            Provide a clear, concise answer based on the search results.
+            Provide a clear, concise answer based only on the search results provided.
+            If the search results don't contain relevant information, say so.
             """
         )
     
-    def _format_chat_history(self, messages: List[Dict]) -> str:
+    def _format_search_results(self, results: list) -> str:
         formatted = []
-        for msg in messages:
-            role = "User" if msg["role"] == "user" else "Assistant"
-            formatted.append(f"{role}: {msg['content']}")
-        return "\n".join(formatted[-4:])
-    
-    def _format_search_results(self, results: List[Dict]) -> str:
-        formatted_results = []
         for result in results:
-            formatted_results.append(f"Title: {result.get('title', 'No title')}")
-            formatted_results.append(f"Content: {result.get('content', 'No content')}")
-            formatted_results.append(f"URL: {result.get('url', 'No URL')}")
-            formatted_results.append("")
-        return "\n".join(formatted_results)
+            formatted.append(f"Title: {result.get('title', '')}")
+            formatted.append(f"Content: {result.get('content', '')}")
+            formatted.append(f"URL: {result.get('url', '')}\n")
+        return "\n".join(formatted)
     
-    def process(self, state: Dict[str, Any]) -> Dict[str, Any]:
+    def process(self, query: str) -> Dict[str, Any]:
         try:
-            messages = state["messages"]
-            last_message = messages[-1]
-            
-            if not isinstance(last_message, HumanMessage):
-                return {"next": "chatbot"}
-            
-            query = last_message.content
-            search_results = self.search_tool.invoke(query)
-            
+            # Log the incoming query
             self.logger.log_agent_decision(
                 "SearchAgent",
                 query,
-                f"Found {len(search_results)} search results"
+                "Initiating search"
             )
             
+            # Perform search
+            search_results = self.search_tool.invoke(query)
+            
+            # Format results
             formatted_results = self._format_search_results(search_results)
             
-            prompt = self.prompt.format(
-                search_results=formatted_results,
-                question=query,
-                chat_history=self._format_chat_history(state.get("memory", []))
+            # Generate response using LLM
+            response = self.llm.invoke(
+                self.prompt.format(
+                    search_results=formatted_results,
+                    question=query
+                )
             )
             
-            response = self.llm.invoke(prompt)
-            
-            return {
-                "messages": [AIMessage(content=response.content)],
-                "next": "chatbot"
-            }
+            return {"tool_output": response.content}
             
         except Exception as e:
             self.logger.log_error(
                 "SearchAgent",
                 e,
-                {"query": query if 'query' in locals() else None}
+                {"query": query}
             )
-            return {
-                "messages": [AIMessage(content="I encountered an error while searching for information.")],
-                "next": "chatbot"
-            } 
+            return {"tool_output": "I encountered an error while searching for information."} 
