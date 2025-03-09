@@ -1,0 +1,12 @@
+langchain_core
+langchain-community
+langgraph
+langchain-huggingface
+langchain-postgres
+psycopg[binary]
+langchain-groq
+python-dotenv
+typing-extensions
+tavily-python
+alembic
+sqlalchemy

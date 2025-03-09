@@ -1,0 +1,226 @@
+2025-03-09 12:45:49,311 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 12:45:49,311 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 12:47:59,360 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 12:47:59,361 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 12:50:19,445 - torch._subclasses.fake_tensor - INFO - FakeTensor cache stats:
+2025-03-09 12:50:19,446 - torch._subclasses.fake_tensor - INFO -   cache_hits: 0
+2025-03-09 12:50:19,446 - torch._subclasses.fake_tensor - INFO -   cache_misses: 0
+2025-03-09 12:51:21,797 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 12:51:21,798 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 12:51:40,165 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 12:51:40,166 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 12:54:11,398 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 12:54:11,399 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 12:56:09,380 - torch._subclasses.fake_tensor - INFO - FakeTensor cache stats:
+2025-03-09 12:56:09,381 - torch._subclasses.fake_tensor - INFO -   cache_hits: 0
+2025-03-09 12:56:09,381 - torch._subclasses.fake_tensor - INFO -   cache_misses: 0
+2025-03-09 12:56:33,533 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 12:56:33,534 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:01:40,342 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 13:01:40,342 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:01:45,802 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:01:45.802392", "agent_type": "DocumentLoader", "error": "File path data/employee_handbook.pdf is not a valid file or url", "context": {"file_path": "data/employee_handbook.pdf", "metadata": {"type": "handbook", "source": "internal"}}}
+2025-03-09 13:01:45,803 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:01:45.803393", "agent_type": "DocumentLoader", "error": "File path data/policies.pdf is not a valid file or url", "context": {"file_path": "data/policies.pdf", "metadata": {"type": "policy", "source": "internal"}}}
+2025-03-09 13:01:45,803 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:01:45.803393", "agent_type": "DocumentLoader", "error": "File path data/procedures.docx is not a valid file or url", "context": {"file_path": "data/procedures.docx", "metadata": {"type": "procedure", "source": "internal"}}}
+2025-03-09 13:01:45,804 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:01:45.804383", "agent_type": "DocumentLoader", "error": "Error loading data/faq.txt", "context": {"file_path": "data/faq.txt", "metadata": {"type": "faq", "source": "internal"}}}
+2025-03-09 13:02:02,260 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 13:02:02,260 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:03:17,559 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 13:03:17,560 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:03:25,908 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:03:25.908378", "agent_type": "RAGAgent", "query": "Who is Elon Musk?", "decision": "Found 0 relevant documents"}
+2025-03-09 13:03:26,510 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:03:26,523 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:03:26,529 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:03:27,085 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:03:27,087 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:03:27.087313", "agent_type": "SQLAgent", "query": "Who is Elon Musk?", "decision": "Generated query: SELECT * FROM users WHERE name = 'Elon Musk'"}
+2025-03-09 13:03:27,088 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:03:27.088319", "agent_type": "SQLAgent", "error": "Textual SQL expression 'SELECT * FROM users WHERE...' should be explicitly declared as text('SELECT * FROM users WHERE...')", "context": {"query": "Who is Elon Musk?"}}
+2025-03-09 13:03:28,744 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:03:28.744891", "agent_type": "SearchAgent", "query": "Who is Elon Musk?", "decision": "Found 2 search results"}
+2025-03-09 13:03:29,305 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:04:34,125 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 13:04:34,125 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:04:43,501 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:04:43.501364", "agent_type": "RAGAgent", "query": "Who is elon musk?", "decision": "Found 0 relevant documents"}
+2025-03-09 13:04:43,975 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:04:43,991 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:04:44,118 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:04:44,502 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:04:44,504 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:04:44.504177", "agent_type": "SQLAgent", "query": "Who is elon musk?", "decision": "Generated query: SELECT * FROM users WHERE name = 'elon musk'"}
+2025-03-09 13:04:44,505 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:04:44.504701", "agent_type": "SQLAgent", "error": "Textual SQL expression 'SELECT * FROM users WHERE...' should be explicitly declared as text('SELECT * FROM users WHERE...')", "context": {"query": "Who is elon musk?"}}
+2025-03-09 13:04:46,202 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:04:46.202158", "agent_type": "SearchAgent", "query": "Who is elon musk?", "decision": "Found 2 search results"}
+2025-03-09 13:04:46,776 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:05:04,489 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:05:04.489170", "agent_type": "RAGAgent", "query": "What are all the tables in our database", "decision": "Found 0 relevant documents"}
+2025-03-09 13:05:04,963 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:05:04,996 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:05:05,058 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:05:05,530 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:05:05,532 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:05:05.532217", "agent_type": "SQLAgent", "query": "What are all the tables in our database", "decision": "Generated query: SELECT table\\_name FROM information\\_schema.tables WHERE table\\_schema = 'public'"}
+2025-03-09 13:05:05,533 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:05:05.533216", "agent_type": "SQLAgent", "error": "Textual SQL expression 'SELECT table\\\\_name FROM i...' should be explicitly declared as text('SELECT table\\\\_name FROM i...')", "context": {"query": "What are all the tables in our database"}}
+2025-03-09 13:05:06,511 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:05:06.511244", "agent_type": "SearchAgent", "query": "What are all the tables in our database", "decision": "Found 3 search results"}
+2025-03-09 13:05:07,119 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:09:45,497 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 13:09:45,497 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:09:50,849 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:09:50.849800", "agent_type": "RAGAgent", "error": "File path data/employee_handbook.pdf is not a valid file or url", "context": {"file_path": "data/employee_handbook.pdf"}}
+2025-03-09 13:09:50,850 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:09:50.850807", "agent_type": "RAGAgent", "error": "Error loading data/policies.txt", "context": {"file_path": "data/policies.txt"}}
+2025-03-09 13:10:09,101 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:10:09,118 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:10:09,317 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:10:09,653 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:10:09,656 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:10:09.656740", "agent_type": "SQLAgent", "query": "Who is elon musk?", "decision": "Generated query: SELECT * FROM users WHERE name = 'elon musk'"}
+2025-03-09 13:10:10,814 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:10:10.814061", "agent_type": "SearchAgent", "query": "Who is elon musk?", "decision": "Found 2 search results"}
+2025-03-09 13:10:11,364 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:10:34,430 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:10:34,488 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:10:34,490 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:10:35,050 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:10:35,052 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:10:35.052780", "agent_type": "SQLAgent", "query": "What are all the tables in our database", "decision": "Generated query: SELECT table\\_name FROM information\\_schema.tables WHERE table\\_schema = 'public'"}
+2025-03-09 13:10:35,055 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:10:35.055789", "agent_type": "SQLAgent", "error": "(psycopg2.errors.SyntaxError) syntax error at or near \"table\"\nLINE 1: SELECT table\\_name FROM information\\_schema.tables WHERE tab...\n               ^\n\n[SQL: SELECT table\\_name FROM information\\_schema.tables WHERE table\\_schema = 'public']\n(Background on this error at: https://sqlalche.me/e/20/f405)", "context": {"query": "What are all the tables in our database"}}
+2025-03-09 13:10:36,753 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:10:36.753887", "agent_type": "SearchAgent", "query": "What are all the tables in our database", "decision": "Found 3 search results"}
+2025-03-09 13:10:37,527 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:11:53,327 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 13:11:53,328 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:11:58,832 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:11:58.832033", "agent_type": "RAGAgent", "error": "File path data/employee_handbook.pdf is not a valid file or url", "context": {"file_path": "data/employee_handbook.pdf"}}
+2025-03-09 13:11:58,832 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:11:58.832440", "agent_type": "RAGAgent", "error": "Error loading data/policies.txt", "context": {"file_path": "data/policies.txt"}}
+2025-03-09 13:12:07,311 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:12:07,358 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:12:07,421 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:12:07,898 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:12:07,900 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:12:07.900377", "agent_type": "SQLAgent", "query": "Who is katy perry?", "decision": "Generated query: SELECT name FROM users WHERE name = 'katy perry'"}
+2025-03-09 13:12:08,908 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:12:08.908256", "agent_type": "SearchAgent", "query": "Who is katy perry?", "decision": "Found 3 search results"}
+2025-03-09 13:12:09,449 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:12:24,277 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:12:24,339 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:12:24,508 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:12:24,808 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:12:24,809 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:12:24.809406", "agent_type": "SQLAgent", "query": "What are all the tables in  our database?", "decision": "Generated query: SELECT table\\_name FROM information\\_schema.tables WHERE table\\_schema = 'public'"}
+2025-03-09 13:12:24,812 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:12:24.812402", "agent_type": "SQLAgent", "error": "(psycopg2.errors.SyntaxError) syntax error at or near \"table\"\nLINE 1: SELECT table\\_name FROM information\\_schema.tables WHERE tab...\n               ^\n\n[SQL: SELECT table\\_name FROM information\\_schema.tables WHERE table\\_schema = 'public']\n(Background on this error at: https://sqlalche.me/e/20/f405)", "context": {"query": "What are all the tables in  our database?"}}
+2025-03-09 13:12:26,137 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:12:26.137600", "agent_type": "SearchAgent", "query": "What are all the tables in  our database?", "decision": "Found 3 search results"}
+2025-03-09 13:12:26,907 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:13:36,493 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 13:13:36,493 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:13:42,548 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:13:42.548331", "agent_type": "RAGAgent", "error": "File path data/employee_handbook.pdf is not a valid file or url", "context": {"file_path": "data/employee_handbook.pdf"}}
+2025-03-09 13:13:42,549 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:13:42.549359", "agent_type": "RAGAgent", "error": "Error loading data/policies.txt", "context": {"file_path": "data/policies.txt"}}
+2025-03-09 13:14:57,706 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 13:14:57,707 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:15:03,336 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:15:03.335638", "agent_type": "RAGAgent", "error": "File path data/employee_handbook.pdf is not a valid file or url", "context": {"file_path": "data/employee_handbook.pdf"}}
+2025-03-09 13:15:03,469 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:15:03.469957", "agent_type": "RAGAgent", "query": "Loading document: data/policies.txt", "decision": "Successfully loaded 1 chunks"}
+2025-03-09 13:15:12,407 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:15:12,439 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:15:12,645 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:15:12,983 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:15:12,987 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:15:12.987053", "agent_type": "SQLAgent", "query": "What are all the tables in our database?", "decision": "Generated query: SELECT table\\_name FROM information\\_schema.tables WHERE table\\_schema = 'public'"}
+2025-03-09 13:15:13,903 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:15:13.903388", "agent_type": "SearchAgent", "query": "What are all the tables in our database?", "decision": "Found 3 search results"}
+2025-03-09 13:15:14,492 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:15:15,089 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:15:15.089568", "agent_type": "SQLAgent", "error": "(psycopg2.errors.SyntaxError) syntax error at or near \"table\"\nLINE 1: SELECT table\\_name FROM information\\_schema.tables WHERE tab...\n               ^\n\n[SQL: SELECT table\\_name FROM information\\_schema.tables WHERE table\\_schema = 'public']\n(Background on this error at: https://sqlalche.me/e/20/f405)", "context": {"query": "What are all the tables in our database?"}}
+2025-03-09 13:15:31,531 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 13:15:31,531 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:15:36,936 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:15:36.936991", "agent_type": "RAGAgent", "error": "File path data/employee_handbook.pdf is not a valid file or url", "context": {"file_path": "data/employee_handbook.pdf"}}
+2025-03-09 13:15:37,080 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:15:37.080074", "agent_type": "RAGAgent", "query": "Loading document: data/policies.txt", "decision": "Successfully loaded 1 chunks"}
+2025-03-09 13:15:44,513 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:15:44,558 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:15:44,731 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:15:45,105 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:15:45,107 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:15:45.107114", "agent_type": "SQLAgent", "query": "What are all the tables in our database?", "decision": "Generated query: SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public'"}
+2025-03-09 13:15:45,871 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:15:45.871423", "agent_type": "SearchAgent", "query": "What are all the tables in our database?", "decision": "Found 3 search results"}
+2025-03-09 13:15:46,504 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:16:32,670 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:16:32,781 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:16:32,894 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:16:33,206 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:16:33,210 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:16:33.210716", "agent_type": "SQLAgent", "query": "Insert some data into the database random data 10 entries", "decision": "Generated query: -- Insert 10 random entries into the users table\nINSERT INTO users (name, email, created_at)\nSELECT md5(random()::text) AS name,\n       md5(random()::text) || '@example.com' AS email,\n       NOW() - INTERVAL '1 day' * random() AS created_at\nFROM generate_series(1, 10) AS s;\n\n-- Insert 10 random entries into the products table\nINSERT INTO products (name, email, created_at)\nSELECT md5(random()::text) AS name,\n       md5(random()::text) || '@example.com' AS email,\n       NOW() - INTERVAL '1 day' * random() AS created_at\nFROM generate_series(1, 10) AS s;\n\n-- Insert 10 random entries into the orders table\nINSERT INTO orders (order_date, total_amount, user_id)\nSELECT NOW() - INTERVAL '1 day' * random() AS order_date,\n       100 * random() AS total_amount,\n       (SELECT id FROM users ORDER BY random() LIMIT 1) AS user_id\nFROM generate_series(1, 10)"}
+2025-03-09 13:16:34,107 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:16:34.107550", "agent_type": "SearchAgent", "query": "Insert some data into the database random data 10 entries", "decision": "Found 3 search results"}
+2025-03-09 13:16:34,972 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:42:13,343 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 13:42:13,343 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:42:19,224 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:42:19.224308", "agent_type": "RAGAgent", "query": "Loading document: data\\policies.txt", "decision": "Successfully loaded 1 chunks"}
+2025-03-09 13:42:19,224 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:42:19.224823", "agent_type": "RAGAgent", "error": "No module named 'docx2txt'", "context": {"file_path": "data\\SQL.docx"}}
+2025-03-09 13:45:49,500 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 13:45:49,501 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:45:55,313 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:45:55.313991", "agent_type": "RAGAgent", "query": "Loading document: data\\policies.txt", "decision": "Successfully loaded 1 chunks"}
+2025-03-09 13:45:56,241 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:45:56.241256", "agent_type": "RAGAgent", "query": "Loading document: data\\SQL.docx", "decision": "Successfully loaded 3 chunks"}
+2025-03-09 13:46:05,599 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:46:05,623 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:46:05,625 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:46:05.625238", "agent_type": "SQLAgent", "query": "Who is elon musk?", "decision": "Generated query: SELECT name FROM users WHERE email = 'elon.musk@example.com'"}
+2025-03-09 13:46:05,631 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:46:07,312 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:46:07.312304", "agent_type": "SearchAgent", "query": "Who is elon musk?", "decision": "Found 2 search results"}
+2025-03-09 13:46:07,869 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:46:26,596 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:46:26,600 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:46:26.599756", "agent_type": "SQLAgent", "query": "What are all the tables in our database?", "decision": "Generated query: Here is the PostgreSQL query to list all tables in the HashCart database:\n\n```sql\nSELECT table_name \nFROM information_schema.tables \nWHERE table_schema = 'public';\n```\n\nThis query will return the names of all tables in the public schema of the HashCart database."}
+2025-03-09 13:46:26,608 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:46:26.607802", "agent_type": "SQLAgent", "error": "(psycopg2.errors.SyntaxError) syntax error at or near \"Here\"\nLINE 1: Here is the PostgreSQL query to list all tables in the HashC...\n        ^\n\n[SQL: Here is the PostgreSQL query to list all tables in the HashCart database:\n\n```sql\nSELECT table_name \nFROM information_schema.tables \nWHERE table_schema = 'public';\n```\n\nThis query will return the names of all tables in the public schema of the HashCart database.]\n(Background on this error at: https://sqlalche.me/e/20/f405)", "context": {"query": "What are all the tables in our database?"}}
+2025-03-09 13:46:26,679 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:46:26,817 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:46:28,181 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:46:28.181889", "agent_type": "SearchAgent", "query": "What are all the tables in our database?", "decision": "Found 3 search results"}
+2025-03-09 13:46:28,945 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:46:55,648 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:46:55,675 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:46:55,677 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:46:55.677233", "agent_type": "SQLAgent", "query": "What is the policy?", "decision": "Generated query: I'm sorry for the confusion, but the business user's question \"What is the policy?\" is too vague to be converted into a specific SQL query. In order to generate a valid SQL query, I would need more context or details about the policy they are referring to, such as a policy related to orders, users, or products.\n\nIf you could provide more information about the policy, I would be happy to help you construct the appropriate PostgreSQL query."}
+2025-03-09 13:46:55,681 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:46:55.681143", "agent_type": "SQLAgent", "error": "(psycopg2.errors.SyntaxError) syntax error at or near \"I\"\nLINE 1: I'm sorry for the confusion, but the business user's questio...\n        ^\n\n[SQL: I'm sorry for the confusion, but the business user's question \"What is the policy?\" is too vague to be converted into a specific SQL query. In order to generate a valid SQL query, I would need more context or details about the policy they are referring to, such as a policy related to orders, users, or products.\n\nIf you could provide more information about the policy, I would be happy to help you construct the appropriate PostgreSQL query.]\n(Background on this error at: https://sqlalche.me/e/20/f405)", "context": {"query": "What is the policy?"}}
+2025-03-09 13:46:56,031 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:46:57,226 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:46:57.226692", "agent_type": "SearchAgent", "query": "What is the policy?", "decision": "Found 3 search results"}
+2025-03-09 13:46:57,805 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:47:12,280 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 13:47:12,280 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:47:17,789 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:47:17.789640", "agent_type": "RAGAgent", "query": "Loading document: data\\policies.txt", "decision": "Successfully loaded 1 chunks"}
+2025-03-09 13:47:24,154 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:47:24,186 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:47:24.186395", "agent_type": "SQLAgent", "query": "In policies.txt summarise it", "decision": "Generated query: I'm sorry for the confusion, but the business user's question seems to refer to a file named \"policies.txt\" which is not part of the provided schema. I would need the content or context of the policies.txt to generate an accurate SQL query.\n\nHowever, if the user is asking for a summary of the policies.txt, it's not related to the HashCart database schema. In this case, you can use a text editor or a command-line tool to summarize the text file, not a SQL query."}
+2025-03-09 13:47:24,257 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:47:24,390 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:47:25,912 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:47:25.911906", "agent_type": "SearchAgent", "query": "In policies.txt summarise it", "decision": "Found 3 search results"}
+2025-03-09 13:47:26,249 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:47:26.249011", "agent_type": "SQLAgent", "error": "(psycopg2.errors.SyntaxError) syntax error at or near \"I\"\nLINE 1: I'm sorry for the confusion, but the business user's questio...\n        ^\n\n[SQL: I'm sorry for the confusion, but the business user's question seems to refer to a file named \"policies.txt\" which is not part of the provided schema. I would need the content or context of the policies.txt to generate an accurate SQL query.\n\nHowever, if the user is asking for a summary of the policies.txt, it's not related to the HashCart database schema. In this case, you can use a text editor or a command-line tool to summarize the text file, not a SQL query.]\n(Background on this error at: https://sqlalche.me/e/20/f405)", "context": {"query": "In policies.txt summarise it"}}
+2025-03-09 13:47:26,771 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:47:46,199 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:47:46,203 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:47:46.203892", "agent_type": "SQLAgent", "query": "What are all present in the schema", "decision": "Generated query: Here is the PostgreSQL query to list all the tables in the HashCart database:\n\n```sql\nSELECT table_name\nFROM information_schema.tables\nWHERE table_schema = 'HashCart';\n```\n\nThis query will return the names of all tables in the HashCart database."}
+2025-03-09 13:47:46,211 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:47:46.211979", "agent_type": "SQLAgent", "error": "(psycopg2.errors.SyntaxError) syntax error at or near \"Here\"\nLINE 1: Here is the PostgreSQL query to list all the tables in the H...\n        ^\n\n[SQL: Here is the PostgreSQL query to list all the tables in the HashCart database:\n\n```sql\nSELECT table_name\nFROM information_schema.tables\nWHERE table_schema = 'HashCart';\n```\n\nThis query will return the names of all tables in the HashCart database.]\n(Background on this error at: https://sqlalche.me/e/20/f405)", "context": {"query": "What are all present in the schema"}}
+2025-03-09 13:47:46,317 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:47:46,623 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:47:48,334 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:47:48.334636", "agent_type": "SearchAgent", "query": "What are all present in the schema", "decision": "Found 3 search results"}
+2025-03-09 13:47:48,940 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:53:02,025 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 13:53:02,025 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 13:53:08,346 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:53:08.345031", "agent_type": "RAGAgent", "query": "Loading document: data\\policies.txt", "decision": "Successfully loaded 1 chunks"}
+2025-03-09 13:53:18,705 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:53:18,706 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:53:18,725 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:53:18.725515", "agent_type": "SQLAgent", "query": "Who is elon musk?", "decision": "Generated query: SELECT name FROM users WHERE email = 'elon.musk@example.com'"}
+2025-03-09 13:53:18,809 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:53:20,502 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:53:20.502433", "agent_type": "SearchAgent", "query": "Who is elon musk?", "decision": "Found 2 search results"}
+2025-03-09 13:53:21,063 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:53:42,352 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:53:42,357 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:53:42.357961", "agent_type": "SQLAgent", "query": "What are our company policies?", "decision": "Generated query: I'm sorry for the confusion, but the question provided doesn't seem to relate to any of the tables in the HashCart schema. The tables include information about users, products, and orders, but there are no tables or fields that would contain company policies. Therefore, it's not possible to generate a PostgreSQL query for this question."}
+2025-03-09 13:53:42,366 - AgentSystem - ERROR - {"timestamp": "2025-03-09T13:53:42.366957", "agent_type": "SQLAgent", "error": "(psycopg2.errors.SyntaxError) syntax error at or near \"I\"\nLINE 1: I'm sorry for the confusion, but the question provided doesn...\n        ^\n\n[SQL: I'm sorry for the confusion, but the question provided doesn't seem to relate to any of the tables in the HashCart schema. The tables include information about users, products, and orders, but there are no tables or fields that would contain company policies. Therefore, it's not possible to generate a PostgreSQL query for this question.]\n(Background on this error at: https://sqlalche.me/e/20/f405)", "context": {"query": "What are our company policies?"}}
+2025-03-09 13:53:42,488 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:53:42,792 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:53:43,633 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:53:43.633341", "agent_type": "SearchAgent", "query": "What are our company policies?", "decision": "Found 3 search results"}
+2025-03-09 13:53:44,234 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:54:24,197 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:54:24,203 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:54:24.203475", "agent_type": "SQLAgent", "query": "What are the tables in our database?", "decision": "Generated query: -- To get the tables in the database\nSELECT table_name\nFROM information_schema.tables\nWHERE table_schema = 'HashCart'"}
+2025-03-09 13:54:24,386 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:54:24,432 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 13:54:25,862 - AgentSystem - INFO - {"timestamp": "2025-03-09T13:54:25.862751", "agent_type": "SearchAgent", "query": "What are the tables in our database?", "decision": "Found 3 search results"}
+2025-03-09 13:54:26,528 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:06:28,841 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 14:06:28,841 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 14:06:34,362 - AgentSystem - INFO - {"timestamp": "2025-03-09T14:06:34.362030", "agent_type": "RAGAgent", "query": "Loading document: data\\policies.txt", "decision": "Successfully loaded 1 chunks"}
+2025-03-09 14:06:44,820 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:06:44,848 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:06:44,867 - AgentSystem - INFO - {"timestamp": "2025-03-09T14:06:44.867234", "agent_type": "SQLAgent", "query": "Hey what is your name?", "decision": "Generated query: SELECT name FROM users LIMIT 1"}
+2025-03-09 14:06:44,874 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:06:46,213 - AgentSystem - INFO - {"timestamp": "2025-03-09T14:06:46.213517", "agent_type": "SearchAgent", "query": "Hey what is your name?", "decision": "Found 2 search results"}
+2025-03-09 14:06:46,850 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:07:12,561 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:07:12,562 - AgentSystem - INFO - {"timestamp": "2025-03-09T14:07:12.562762", "agent_type": "SQLAgent", "query": "What are all the tables in our database?", "decision": "Generated query: SELECT table\\_name FROM information\\_schema.tables WHERE table\\_schema = 'HashCart';\n\n(The above query will return all the table names present in the HashCart database)"}
+2025-03-09 14:07:12,565 - AgentSystem - ERROR - {"timestamp": "2025-03-09T14:07:12.565761", "agent_type": "SQLAgent", "error": "(psycopg2.errors.SyntaxError) syntax error at or near \"table\"\nLINE 1: SELECT table\\_name FROM information\\_schema.tables WHERE tab...\n               ^\n\n[SQL: SELECT table\\_name FROM information\\_schema.tables WHERE table\\_schema = 'HashCart';\n\n(The above query will return all the table names present in the HashCart database)]\n(Background on this error at: https://sqlalche.me/e/20/f405)", "context": {"query": "What are all the tables in our database?"}}
+2025-03-09 14:07:12,649 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:07:12,765 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:07:14,279 - AgentSystem - INFO - {"timestamp": "2025-03-09T14:07:14.279152", "agent_type": "SearchAgent", "query": "What are all the tables in our database?", "decision": "Found 3 search results"}
+2025-03-09 14:07:15,093 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:08:37,174 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-09 14:08:37,174 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-03-09 14:08:42,250 - AgentSystem - INFO - {"timestamp": "2025-03-09T14:08:42.250192", "agent_type": "RAGAgent", "query": "Loading document: data\\policies.txt", "decision": "Successfully loaded 1 chunks"}
+2025-03-09 14:08:46,620 - AgentSystem - INFO - {"timestamp": "2025-03-09T14:08:46.620384", "agent_type": "SQLAgent", "query": "Database tables all?", "decision": "Generated query: SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public'"}
+2025-03-09 14:08:47,294 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:08:47,425 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:08:49,267 - AgentSystem - INFO - {"timestamp": "2025-03-09T14:08:49.267512", "agent_type": "SearchAgent", "query": "Database tables all?", "decision": "Found 3 search results"}
+2025-03-09 14:08:50,033 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:09:53,866 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:09:53,868 - AgentSystem - INFO - {"timestamp": "2025-03-09T14:09:53.868452", "agent_type": "SQLAgent", "query": "Insert a product MacBook email would be abc@gmail.com ", "decision": "Generated query: INSERT INTO products (name, email) VALUES ('MacBook', 'abc@gmail.com')"}
+2025-03-09 14:09:54,095 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:09:54,372 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-09 14:09:55,894 - AgentSystem - INFO - {"timestamp": "2025-03-09T14:09:55.893936", "agent_type": "SearchAgent", "query": "Insert a product MacBook email would be abc@gmail.com ", "decision": "Found 3 search results"}
+2025-03-09 14:09:56,729 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
